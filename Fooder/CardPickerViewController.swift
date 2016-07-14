@@ -46,7 +46,7 @@ class CardPickerViewController: UIViewController, UIViewControllerTransitioningD
         nopeBUtton.setImage(crossImage, for: .normal)
         
         
-        // Animation (fdr-animdistance)
+        // Animation
         animationDistance = view.bounds.width * 1.25
     }
     
@@ -124,19 +124,18 @@ class CardPickerViewController: UIViewController, UIViewControllerTransitioningD
     }
     
     
-    @IBAction func like(button:UIButton) { // fdr-like
+    @IBAction func like(button:UIButton) {
         animationDirection = 1.0
         setupLikeAnimator()
         likeAnimator!.startAnimation()
     }
     
-    @IBAction func nope(button:UIButton) { // fdr-like (-1.0)
+    @IBAction func nope(button:UIButton) {
         animationDirection = -1.0
         setupLikeAnimator()
         likeAnimator!.startAnimation()
     }
     
-    // fdr-pan1
     @IBAction func handlePan(recognizer:UIPanGestureRecognizer) {
         var translation = recognizer.translation(in: view)
         // This is needed to adjust the translation coordinates when the gesture recognizer begins by interrupting an animation.h
@@ -209,7 +208,6 @@ class CardPickerViewController: UIViewController, UIViewControllerTransitioningD
             let detailsViewController = segue.destinationViewController as! CardDetailViewController
             
             detailsViewController.restaurantName = firstCard.restaurantName
-            // fdr-delegatesetup
             detailsViewController.transitioningDelegate = self
             detailsViewController.modalPresentationStyle = .custom
 
@@ -218,7 +216,7 @@ class CardPickerViewController: UIViewController, UIViewControllerTransitioningD
         }
     }
     
-    // UIViewControllerTransitioningDelegate (fdr-transitioning)
+    // UIViewControllerTransitioningDelegate
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         let animationController = FlipPresentingAnimator()
         animationController.viewForTransition = firstCard

@@ -72,7 +72,7 @@ class ScrollableContainerViewController: UIViewController, UIScrollViewDelegate 
     
     // UIScrollViewDelegate
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) { // fdr-scroll
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offset = scrollView.contentOffset.x
         let screenWidth = scrollView.contentSize.width / 3.0
         

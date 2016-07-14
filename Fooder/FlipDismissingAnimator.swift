@@ -16,7 +16,6 @@ class FlipDismissingAnimator: NSObject, UIViewControllerAnimatedTransitioning {
     }
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        // fdr-dismissinganimator
         let containerView = transitionContext.containerView()
         let fromVC = transitionContext.viewController(forKey: UITransitionContextFromViewControllerKey)!
         
